@@ -1,0 +1,137 @@
+{
+  "taskDefinitionArn": "arn:aws:ecs:us-west-2:905417995001:task-definition/AwsElasticsearchStackSecondCONSTRACTServiceTaskDefinition95E7565F:20",
+  "containerDefinitions": [
+    {
+      "name": "ElasticsearchContainer",
+      "image": "905417995001.dkr.ecr.us-west-2.amazonaws.com/cdk-hnb659fds-container-assets-905417995001-us-west-2:0dd1e032a35cd2fb36ff0dde1ea2f06a61cc81ebf55ceff1d6242149b693d5c9",
+      "cpu": 0,
+      "links": [],
+      "portMappings": [
+        {
+          "containerPort": 9300,
+          "hostPort": 9300,
+          "protocol": "tcp"
+        },
+        {
+          "containerPort": 9200,
+          "hostPort": 9200,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "entryPoint": [],
+      "command": [],
+      "environment": [
+        {
+          "name": "cluster.name",
+          "value": "ElasticsearchCluster"
+        },
+        {
+          "name": "cluster.initial_master_nodes",
+          "value": "master"
+        },
+        {
+          "name": "discovery.seed_providers",
+          "value": "ec2"
+        },
+        {
+          "name": "ES_JAVA_OPTS",
+          "value": "-Xms1024m -Xmx1024m"
+        },
+        {
+          "name": "transport.port",
+          "value": "9300"
+        },
+        {
+          "name": "network.host",
+          "value": "_ec2:privateIpv4_"
+        },
+        {
+          "name": "discovery.ec2.host_type",
+          "value": "private_ip"
+        },
+        {
+          "name": "node.name",
+          "value": "master"
+        },
+        {
+          "name": "discovery.ec2.endpoint",
+          "value": "ec2.us-west-2.amazonaws.com"
+        },
+        {
+          "name": "xpack.security.enabled",
+          "value": "false"
+        },
+        {
+          "name": "discovery.ec2.tag.ElasticSearch",
+          "value": "true"
+        }
+      ],
+      "environmentFiles": [],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "secrets": [],
+      "dnsServers": [],
+      "dnsSearchDomains": [],
+      "extraHosts": [],
+      "dockerSecurityOptions": [],
+      "dockerLabels": {},
+      "ulimits": [],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "AwsElasticsearchStackSecond-CONSTRACTServiceTaskDefinitionServiceobjectObjectLogGroupCF343D9A-oQFNyFwO1eJ1",
+          "awslogs-region": "us-west-2",
+          "awslogs-stream-prefix": "ElasticsearchContainer"
+        },
+        "secretOptions": []
+      },
+      "systemControls": [],
+      "credentialSpecs": []
+    }
+  ],
+  "family": "AwsElasticsearchStackSecondCONSTRACTServiceTaskDefinition95E7565F",
+  "taskRoleArn": "arn:aws:iam::905417995001:role/AwsElasticsearchStackSeco-CONSTRACTServiceTaskDefin-5hWii93j7jsB",
+  "executionRoleArn": "arn:aws:iam::905417995001:role/ecsTaskExecutionRole",
+  "networkMode": "host",
+  "revision": 20,
+  "volumes": [],
+  "status": "ACTIVE",
+  "requiresAttributes": [
+    {
+      "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+    },
+    {
+      "name": "ecs.capability.execution-role-awslogs"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.task-iam-role-network-host"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.ecr-auth"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.17"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.task-iam-role"
+    },
+    {
+      "name": "ecs.capability.execution-role-ecr-pull"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+    }
+  ],
+  "placementConstraints": [],
+  "compatibilities": ["EXTERNAL", "EC2"],
+  "requiresCompatibilities": ["EC2"],
+  "cpu": "2048",
+  "memory": "4",
+  "registeredAt": "2024-07-01T14:20:34.001Z",
+  "registeredBy": "arn:aws:sts::905417995001:assumed-role/cdk-hnb659fds-cfn-exec-role-905417995001-us-west-2/AWSCloudFormation",
+  "tags": []
+}

@@ -1,0 +1,80 @@
+{
+  "vpc-provider:account=905417995001:filter.isDefault=true:region=us-west-2:returnAsymmetricSubnets=true": {
+    "vpcId": "vpc-0abd9f1d61e85167c",
+    "vpcCidrBlock": "172.31.0.0/16",
+    "ownerAccountId": "905417995001",
+    "availabilityZones": [],
+    "subnetGroups": [
+      {
+        "name": "Public",
+        "type": "Public",
+        "subnets": [
+          {
+            "subnetId": "subnet-08105dc971cc33e0b",
+            "cidr": "172.31.16.0/20",
+            "availabilityZone": "us-west-2a",
+            "routeTableId": "rtb-00c9927a47373f5ee"
+          },
+          {
+            "subnetId": "subnet-0b71a284305bd5ec2",
+            "cidr": "172.31.32.0/20",
+            "availabilityZone": "us-west-2b",
+            "routeTableId": "rtb-00c9927a47373f5ee"
+          },
+          {
+            "subnetId": "subnet-0537482b5172f3a03",
+            "cidr": "172.31.0.0/20",
+            "availabilityZone": "us-west-2c",
+            "routeTableId": "rtb-00c9927a47373f5ee"
+          },
+          {
+            "subnetId": "subnet-0718b3ce084c4a0af",
+            "cidr": "172.31.48.0/20",
+            "availabilityZone": "us-west-2d",
+            "routeTableId": "rtb-00c9927a47373f5ee"
+          }
+        ]
+      }
+    ]
+  },
+  "availability-zones:account=905417995001:region=us-west-2": [
+    "us-west-2a",
+    "us-west-2b",
+    "us-west-2c",
+    "us-west-2d"
+  ],
+  "ami:account=905417995001:filters.image-type.0=machine:filters.name.0=amzn2-ami-ecs-hvm-*-x86_64-ebs:filters.state.0=available:owners.0=amazon:region=us-west-2": "ami-040dca123bbe92eaf",
+  "vpc-provider:account=905417995001:filter.isDefault=true:region=us-east-2:returnAsymmetricSubnets=true": {
+    "vpcId": "vpc-0bde3aa4cabc623fc",
+    "vpcCidrBlock": "172.31.0.0/16",
+    "ownerAccountId": "905417995001",
+    "availabilityZones": [],
+    "subnetGroups": [
+      {
+        "name": "Public",
+        "type": "Public",
+        "subnets": [
+          {
+            "subnetId": "subnet-0c4ab52a3b9d4fa33",
+            "cidr": "172.31.0.0/20",
+            "availabilityZone": "us-east-2a",
+            "routeTableId": "rtb-09836fe6d1fb0fe9c"
+          },
+          {
+            "subnetId": "subnet-06ec7751713ca3eaf",
+            "cidr": "172.31.16.0/20",
+            "availabilityZone": "us-east-2b",
+            "routeTableId": "rtb-09836fe6d1fb0fe9c"
+          },
+          {
+            "subnetId": "subnet-07e6ae65a3ff60797",
+            "cidr": "172.31.32.0/20",
+            "availabilityZone": "us-east-2c",
+            "routeTableId": "rtb-09836fe6d1fb0fe9c"
+          }
+        ]
+      }
+    ]
+  },
+  "ami:account=905417995001:filters.image-type.0=machine:filters.name.0=al2023-ami-ecs-hvm-2023.0.20240625-kernel-6.1-x86_64:filters.state.0=available:region=us-east-2": "ami-0abd249d71601ea48"
+}

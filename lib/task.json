@@ -1,0 +1,109 @@
+{
+  "taskDefinitionArn": "arn:aws:ecs:us-west-1:905417995001:task-definition/test-elasticsearch:2",
+  "containerDefinitions": [
+    {
+      "name": "elastic",
+      "image": "905417995001.dkr.ecr.us-west-2.amazonaws.com/cdk-hnb659fds-container-assets-905417995001-us-west-2:b8eda5b56313446f1e68150bcfb3f33a335298584ea220578fcdb731cf6d6c59",
+      "cpu": 0,
+      "portMappings": [],
+      "essential": true,
+      "environment": [
+        {
+          "name": "cluster.name",
+          "value": "ElasticsearchCluster"
+        },
+        {
+          "name": "cluster.initial_master_nodes",
+          "value": "master"
+        },
+        {
+          "name": "ES_JAVA_OPTS",
+          "value": "-Xms1g -Xmx1g"
+        },
+        {
+          "name": "discovery.seed_providers",
+          "value": "ec2"
+        },
+        {
+          "name": "transport.port",
+          "value": "9300"
+        },
+        {
+          "name": "discovery.ec2.host_type",
+          "value": "private_ip"
+        },
+        {
+          "name": "network.host",
+          "value": "_ec2:privateIpv4_"
+        },
+        {
+          "name": "node.name",
+          "value": "master"
+        },
+        {
+          "name": "discovery.ec2.endpoint",
+          "value": "ec2.us-west-2.amazonaws.com"
+        },
+        {
+          "name": "xpack.security.enabled",
+          "value": "false"
+        },
+        {
+          "name": "discovery.ec2.tag.ElasticSearch",
+          "value": "true"
+        }
+      ],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/test-elasticsearch",
+          "awslogs-create-group": "true",
+          "awslogs-region": "us-west-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "systemControls": []
+    }
+  ],
+  "family": "test-elasticsearch",
+  "executionRoleArn": "arn:aws:iam::905417995001:role/ecsTaskExecutionRole",
+  "networkMode": "host",
+  "revision": 2,
+  "volumes": [],
+  "status": "ACTIVE",
+  "requiresAttributes": [
+    {
+      "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+    },
+    {
+      "name": "ecs.capability.execution-role-awslogs"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.ecr-auth"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+    },
+    {
+      "name": "ecs.capability.execution-role-ecr-pull"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+    }
+  ],
+  "placementConstraints": [],
+  "compatibilities": ["EXTERNAL", "EC2"],
+  "requiresCompatibilities": ["EC2"],
+  "cpu": "1024",
+  "memory": "3072",
+  "registeredAt": "2024-07-02T08:56:25.243Z",
+  "registeredBy": "arn:aws:iam::905417995001:user/rasul",
+  "tags": []
+}
+
+
