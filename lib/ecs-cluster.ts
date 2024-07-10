@@ -94,7 +94,7 @@ export class ECSCluster extends Construct {
         taskDefinitionOptions,
       }) => {
         // EC2 and auto scaling
-        const instanceRole = new Role(this, `${name}EC2Role`, {
+        const ecsContainerInstanceRole = new Role(this, `${name}EC2Role`, {
           managedPolicies: [
             ManagedPolicy.fromAwsManagedPolicyName(
               "service-role/AmazonEC2ContainerServiceforEC2Role"
@@ -104,7 +104,7 @@ export class ECSCluster extends Construct {
         });
 
         ec2InlinePolicies?.forEach((policy) => {
-          instanceRole.attachInlinePolicy(policy);
+          ecsContainerInstanceRole.attachInlinePolicy(policy);
         });
 
         const ec2InstanceName = `${name}EC2`;
@@ -134,7 +134,7 @@ export class ECSCluster extends Construct {
 sysctl -w vm.max_map_count=262144`,
             }),
             instanceType: new InstanceType("t2.medium"),
-            role: instanceRole,
+            role: ecsContainerInstanceRole,
             autoScalingGroupName,
             desiredCapacity: 0,
             minCapacity: 0,
@@ -167,11 +167,6 @@ sysctl -w vm.max_map_count=262144`,
           `${name}TaskDefinition`,
           {
             compatibility: Compatibility.EC2,
-            executionRole: Role.fromRoleName(
-              this,
-              "TaskDefinitionExecutionRole",
-              "ecsTaskExecutionRole"
-            ),
             networkMode: NetworkMode.HOST,
             ...taskDefinitionOptions,
           }
